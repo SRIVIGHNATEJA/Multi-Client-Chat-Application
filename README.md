@@ -4,76 +4,110 @@
 
 ## 📌 About the Project
 
-This is a **multi-client chat-based application** built using the **C programming language**, implemented as part of a semester project for the **Computer Networks** course at **Sreyas Institute of Engineering and Technology**. It demonstrates core networking concepts using **sockets**, **multi-threading**, and **POSIX APIs** on **Linux/macOS platforms**.
+This is a **multi-client, real-time chat application** developed in **C**, as a part of the **Computer Networks Lab Project** at **Sreyas Institute of Engineering and Technology**. It combines core CN concepts like **TCP socket programming**, **client-server communication**, and **multithreading** via `pthread` to simulate a real-world terminal-based messaging system.
 
-The system allows:
+The application offers:
 
-* User **registration and login**
-* **Broadcast messages** to all online users
-* **Private messages** to a specific recipient
-* Concurrent clients using **pthread-based threading**
+* Secure **user registration and login system**
+* **Simultaneous multi-client connections** with isolated threads
+* **Broadcast messaging** to all online users
+* **Private messaging** to any specific user
+* **Clean flow of user choices and actions** with complete input validation
 
-## 🚀 Key Features
+## 🚀 Highlights of the Project's Significance
 
-* ✅ Terminal-based User Interface
-* ✅ Multi-client handling using `pthread`
-* ✅ Broadcast and private chat support
-* ✅ Basic authentication (username/password)
-* ✅ Clean socket handling and message structuring
+* ✅ **Practical Implementation** of CN topics using real system-level C code
+* ✅ **Built from scratch** with design planning, socket API usage, and thread-safe communication
+* ✅ Demonstrated on **multi-terminal VS Code** showing real-time chats between users
+* ✅ Offers a **hands-on understanding** of server lifecycle, connection handling, and command-based message routing
+* ✅ Designed for Linux/macOS terminals—**not a GUI simulation**, but a working terminal prototype
+
+> 🔐 Unlike traditional projects, this system is unique in its design, logic flow, and login mechanics.
 
 ## 📁 Project Structure
 
 ```bash
 📦 CN-Chat-Application
-├── client.c           # Client-side implementation
-├── server.c           # Server-side implementation
-├── client             # Compiled client executable
-├── server             # Compiled server executable
-├── a.out              # Optional leftover compilation file (ignore)
-├── *.dSYM             # macOS debug symbol folders (optional, ignore)
-└── README.md          # This project description
+├── client.c             # Client-side implementation (registration/login, menus, message sending)
+├── server.c             # Server-side implementation (threaded client handling, routing logic)
+├── client               # Compiled client binary
+├── server               # Compiled server binary
+├── LICENSE              # Apache License 2.0
+├── README.md            # This file
+├── *.dSYM               # macOS debug folders (auto-generated, can ignore)
+├── a.out                # Default compilation output (ignore)
 ```
 
-## 💻 Compilation & Execution
+---
+
+## 🔄 Functional Flow (Execution Demo)
+
+### 🔧 Compilation
 
 ```bash
-# Step 1: Compile both programs
 $ gcc client.c -o client -lpthread
 $ gcc server.c -o server -lpthread
-
-# Step 2: Run server in one terminal
-$ ./server
-
-# Step 3: Run client in other terminals
-$ ./client
 ```
 
-## 👥 Sample User Flow
+### 🚦 Server Start
 
-* Start server: `Server is running...`
-* Client 1: Register as `Teja` → Login → Send Broadcast: "Hi, Welcome to my project Buddy!"
-* Client 2: Register as `Ravi` → Login → Private message to `Teja`: "Thank you!"
-* Client 3+: Repeat similar flow to interact
+```bash
+$ ./server
+Server is running...
+```
+
+### 🧑‍💻 Client Terminals (Multiple)
+
+```bash
+$ ./client
+Enter username:
+```
+
+Users can:
+
+1. **Register** with a username and password
+2. **Login** to chat
+3. Send messages via:
+
+   * `1. Broadcast` → All users
+   * `2. Private message` → One specific user
+4. `3. Logout` → Exit chat
+
+---
+
+## 🔍 Sample Chat Flow
+
+* **User 1 (Teja):** Registers, logs in, sends broadcast message
+* **User 2 (Ravi):** Registers, logs in, receives broadcast, sends private message
+* **User 3 (Ram):** Logs in to receive all messages
+
+All operations are real-time with thread-safe socket communication.
+
+---
 
 ## 🛠️ Technologies Used
 
-* **Language:** C
-* **Libraries:** POSIX Sockets, `pthread.h`, `arpa/inet.h`, `unistd.h`
-* **OS Support:** macOS/Linux (fully terminal-based execution)
-* **Editor:** VS Code multi-terminal view (for demo)
+| Category       | Tools/Concepts                   |
+| -------------- | -------------------------------- |
+| Language       | C                                |
+| Networking     | TCP, POSIX sockets               |
+| Multithreading | pthread                          |
+| System API     | unistd.h, arpa/inet.h            |
+| Testing        | VS Code terminals (side-by-side) |
+| Platform       | macOS/Linux                      |
+
+---
 
 ## 🔐 License
 
-This project is licensed under the **Apache License 2.0**, which permits:
+Licensed under the [Apache License 2.0](./LICENSE)
 
-* ✅ Commercial use
-* ✅ Modification
-* ✅ Distribution
-* ✅ Patent use
+## 🙌 Author & Credit
 
-📄 See the `LICENSE` file for full legal terms.
+**Developed by:** *Sri Vighna Teja*
+**Department:** AIML, Sreyas Institute of Engineering and Technology
+**Semester:** 2nd Year CN Lab Project (Now in Final Year)
 
-## 🎯 Credits
+---
 
-* 👨‍💻 **Sri Vighna Teja** – AIML Student, Sreyas Institute of Engineering and Technology
-* 💬 Supported by concepts learned from the CN course and enhanced via online learning resources and self-exploration.
+💬 For demonstration and academic purposes only.
